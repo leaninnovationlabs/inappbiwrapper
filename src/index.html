@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>InAppBI Demo</title>
+
+    <!--Bootstrap CSS required: Skip this if your applicaiton already includes bootstrat 3 or 4-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- InAppBI CSS File -->
+    <link rel="stylesheet" href="https://demo.inappbi.com/inappbi/adhoceditor/embed/inappbi/inappbi.css" />
+
+    <!--Icon library for the filters, will be able to skip in future release -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
+
+    <style>
+        /* Temp fix for filters while embedding, will not needed in future */
+        .iab-dash-embed .dash-emb-fil {
+            padding-left: 19px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">Loading Chart ...</div>
+
+    <!-- Pull from InAppBI or host it on your site -->
+    <script src="https://demo.inappbi.com/inappbi/adhoceditor/embed/inappbi/inappbi.js?d=adfasf"></script>
+
+    <!-- Will be remove this dependency -->
+    <script src="./js/webpack.js"></script>
+
+    <script>
+        // Wait for the inital content to be loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Create an instance of InAppBI
+            window.inappbi = new window.InAppBI()
+
+            // Initialize InAppBI, need to done only once and pass InAppBI token for the user derived from your backend
+            // Param1: InAppBIConfig Object, specify where your InAppBI Service is running using apiEndPoint
+            // Param2: Callback function that will be invoked once InAppBI is successfully initialized
+            inappbi.init({
+                apiEndPoint: 'https://demo.inappbi.com/inappbi/',
+                token: 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJleHBpcmF0aW9uVGltZVwiOjE1NDg5NDU2Nzk0ODksXCJfdlwiOlwiMS4wXCIsXCJkb21haW5cIjpcImRldlwiLFwidGVuYW50SWRcIjpcIjU3MzkyYzU0YjJiYjZlZjllMzZlYjhmM1wiLFwidXNlcklkXCI6XCI1NzM5MmM1NGIyYmI2ZWY5ZTM2ZWI4ZjVcIixcInVzZXJuYW1lXCI6XCJlYmlhZG1pblwifSJ9.j0MyDqVDXWQSFTCARGHahToUdgh6GWaFsVwsm5G7DlWIWd6CFcjWu_WUpZ2mDHmmeEfaioTUlB_5R3Cx7f7kJA'
+            }, function () {
+                renderVisuzliation()
+            })
+        }, false);
+
+        function renderVisuzliation() {
+            inappbi.renderVisualization('Store Sales.Product Sales', 'container', {})
+        }
+    </script>
+</body>
+
+</html>
