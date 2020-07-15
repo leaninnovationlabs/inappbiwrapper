@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <!-- InAppBI CSS File -->
-    <link rel="stylesheet" href="https://demo.inappbi.com/inappbi/adhoceditor/embed/inappbi/inappbi.css" />
+    <link rel="stylesheet"
+        href="https://[YOUR_INAPPBI_DOMAIN].inappbi.com/inappbi/adhoceditor/embed/inappbi/inappbi.css" />
 </head>
 
 <body>
@@ -16,7 +17,8 @@
     <div id="container">Loading Chart ...</div>
 
     <!-- Pull from InAppBI or host it on your site -->
-    <script src="https://demo.inappbi.com/inappbi/adhoceditor/embed/inappbi/inappbi.js?d=adfasf"></script>
+    <script src="https://[YOUR_INAPPBI_DOMAIN].inappbi.com/inappbi/adhoceditor/embed/inappbi/inappbi.js?d=adfasf">
+    </script>
 
     <script>
         // Wait for the inital content to be loaded
@@ -28,7 +30,7 @@
             // Param1: InAppBIConfig Object, specify where your InAppBI Service is running using apiEndPoint
             // Param2: Callback function that will be invoked once InAppBI is successfully initialized
             inappbi.init({
-                apiEndPoint: 'https://demo.inappbi.com/inappbi/',
+                apiEndPoint: 'https://[YOUR_INAPPBI_DOMAIN].inappbi.com/inappbi/',
 
                 // For testing purposes only you can pass on username and password, do not use in production
                 // username: 'xxxx',
