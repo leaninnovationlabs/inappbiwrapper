@@ -9,16 +9,6 @@
 
     <!-- InAppBI CSS File -->
     <link rel="stylesheet" href="https://demo.inappbi.com/inappbi/adhoceditor/embed/inappbi/inappbi.css" />
-
-    <!--Icon library for the filters, will be able to skip in future release -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
-
-    <style>
-        /* Temp fix for filters while embedding, will not needed in future */
-        .iab-dash-embed .dash-emb-fil {
-            padding-left: 19px;
-        }
-    </style>
 </head>
 
 <body>
@@ -27,9 +17,6 @@
 
     <!-- Pull from InAppBI or host it on your site -->
     <script src="https://demo.inappbi.com/inappbi/adhoceditor/embed/inappbi/inappbi.js?d=adfasf"></script>
-
-    <!-- Will be remove this dependency -->
-    <script src="./js/webpack.js"></script>
 
     <script>
         // Wait for the inital content to be loaded
@@ -42,14 +29,22 @@
             // Param2: Callback function that will be invoked once InAppBI is successfully initialized
             inappbi.init({
                 apiEndPoint: 'https://demo.inappbi.com/inappbi/',
-                token: 'xxx'
+
+                // For testing purposes only you can pass on username and password, do not use in production
+                // username: 'xxxx',
+                // password: 'xxxxx'
+
+                // Pass on the InAppBI token, fetch it from your backend server using InAppBI /inappbi/api/user/generateJWT end point
+                token: '[USER_TOKEN]',
             }, function () {
                 renderVisuzliation()
             })
         }, false);
 
         function renderVisuzliation() {
-            inappbi.renderVisualization('Store Sales.Product Sales', 'container', {})
+            // param1: Name of the visualization e.g. [foldername].[visualizationname] , 'Orders Dashboards.Orders Storyboard'
+            // Param2: Div in which we should render
+            inappbi.renderVisualization('[NAME_OF_VIZ_INCLUDING_PACKAGENAME]', 'container', {})
         }
     </script>
 </body>
