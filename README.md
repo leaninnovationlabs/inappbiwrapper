@@ -1,3 +1,9 @@
 # Sample InAppBI Wrapper
 
-Checkout index.html on how to embed InAppBI in your application
+This is a sample project demonstrating various ways you can embed InAppBI as part of your application
+
+You can embed InAppBI in the following three ways
+
+* Render Single Visualization With In App : Check out (singleviz.html)[singleviz.html]
+* Embed Via Iframe : Check out (viaiframe.html)[singleviz.html]
+* Open InAppBI in a new tab: Check out sample in index.html
